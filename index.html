@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIBE III - Fault Recording Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>GIBE III HYDROELECTRIC POWER PLANT</h2>
+            <h3>FAULT RECORDING FORMAT</h3>
+        </div>
+
+        <form id="faultForm">
+            <div class="section-title">1. General Fault Information</div>
+            <div class="form-group">
+                <label>Faulty Unit / Line:</label>
+                <input type="text" id="faultyUnit" required placeholder="e.g., Unit 1, 400kV Line">
+            </div>
+            <div class="form-group">
+                <label>Faulted Equipment:</label>
+                <input type="text" id="faultedEquipment" required placeholder="e.g., Transformer, Breaker">
+            </div>
+
+            <div class="form-group">
+                <label>Effect of Fault:</label>
+                <select id="effectOfFault" required>
+                    <option value="">Select Effect</option>
+                    <option value="Total Shut Down">Total Shut Down</option>
+                    <option value="Partial Shut Down">Partial Shut Down</option>
+                    <option value="Transient">Transient</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+
+            <div class="section-title">2. Interruption & Restoration Details</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Interruption Date:</label>
+                    <input type="date" id="interruptionDate">
+                </div>
+                <div class="form-group">
+                    <label>Interruption Time:</label>
+                    <input type="time" id="interruptionTime">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Restoration Date:</label>
+                    <input type="date" id="restorationDate">
+                </div>
+                <div class="form-group">
+                    <label>Restoration Time:</label>
+                    <input type="time" id="restorationTime">
+                </div>
+            </div>
+
+            <div class="section-title">3. SCADA Signals & Comments</div>
+            <div class="form-group">
+                <label>Main signals appeared on signaling board (SCADA):</label>
+                <textarea id="scadaSignals" rows="3" placeholder="Enter SCADA alarms..."></textarea>
+            </div>
+
+            <div class="section-title">4. Shift Handover Information (Operators)</div>
+            <div class="form-group"><label>Group A:</label><input type="text" id="groupA"></div>
+            <div class="form-group"><label>Group B:</label><input type="text" id="groupB"></div>
+            <div class="form-group"><label>Group C:</label><input type="text" id="groupC"></div>
+            <div class="form-group"><label>Group D:</label><input type="text" id="groupD"></div>
+
+            <div class="form-group">
+                <label>Remedial action taken by operators on duty:</label>
+                <textarea id="remedialAction" rows="3" placeholder="Actions taken to stabilize plant..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Other comments for smooth operation:</label>
+                <textarea id="otherComments" rows="2"></textarea>
+            </div>
+
+            <div class="section-title">5. Signatures & Submissions</div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Recorded By (Shift Leader/Operator):</label>
+                    <input type="text" id="recordedBy" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Report Submitted To (Operation Manager):</label>
+                    <input type="text" id="submittedTo" value="Dejene Guta" readonly>
+                </div>
+                <div class="form-group">
+                    <label>Submission Date (E.C/G.C):</label>
+                    <input type="text" id="submissionDate" required placeholder="dd/mm/yyyy">
+                </div>
+                <div class="form-group">
+                    <label>Submission Time:</label>
+                    <input type="time" id="submissionTime" required>
+                </div>
+            </div>
+
+            <div class="reminder">
+                <strong>A Reminder:</strong> They must report to the operation manager upon completion of the assigned work or the status of the work.
+            </div>
+
+            <button type="submit" id="submitBtn">Submit Fault Report</button>
+        </form>
+        <div class="nav-links">
+            <a href="reports.html">📊 View All Submitted Reports</a>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

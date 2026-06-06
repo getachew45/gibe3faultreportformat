@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIBE III - Submitted Fault Reports</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container { max-width: 1200px; }
+        .table-wrapper { overflow-x: auto; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; background: #fff; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; font-size: 11pt; }
+        th { background-color: #1a365d; color: white; }
+        tr:nth-child(even) { background-color: #f7fafc; }
+        .badge { padding: 4px 8px; border-radius: 4px; font-weight: bold; font-size: 9pt; }
+        .badge-total { background: #fed7d7; color: #9b2c2c; }
+        .badge-partial { background: #feebc8; color: #9c4221; }
+        .badge-transient { background: #e2e8f0; color: #4a5568; }
+        .badge-others { background: #e2f0d9; color: #385723; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>GIBE III HYDROELECTRIC POWER PLANT</h2>
+            <h3>SUBMITTED FAULT REPORTS LOG</h3>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html" style="background: #2b6cb0; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none; display: inline-block; margin-bottom: 15px;">➕ Record New Fault</a>
+        </div>
+
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date/Time</th>
+                        <th>Faulty Unit</th>
+                        <th>Equipment</th>
+                        <th>Effect</th>
+                        <th>Interruption (From - To)</th>
+                        <th>SCADA Signals</th>
+                        <th>Recorded By</th>
+                        <th>Action Taken</th>
+                    </tr>
+                </thead>
+                <tbody id="reportsTableBody">
+                    <tr>
+                        <td colspan="8" style="text-align:center;">Loading reports from database...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script src="reports.js"></script>
+</body>
+</html>
